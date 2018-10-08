@@ -124,6 +124,26 @@ def scrabble_value(word, multipliers):
         print("Invalid scrabble value.\nScore:")
     print(sum)
 
-#scrabble_value("world", [1,3,1,1,1])
+#scrabble_value("hello", [1,1,1,1,1])
 
+
+### Create zigzag array ###
+import numpy as np
+
+def create_zigzag(rows, cols, start = 1):
+    full = []
+    digits = start + rows * cols
+    
+    output = np.arange(start,digits,1).reshape(rows,cols)
+
+    for i,l in zip(output,range(len(output))):
+        if l & 1:
+            i = list(i)
+            i.reverse()
+            full.append(i)
+        else:
+            i = list(i)
+            full.append(i)
+    print(full)
         
+create_zigzag(4, 2)
