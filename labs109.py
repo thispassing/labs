@@ -135,6 +135,7 @@ def create_zigzag(rows, cols, start = 1):
     digits = start + rows * cols
     
     output = np.arange(start,digits,1).reshape(rows,cols)
+    #print(output)
 
     for i,l in zip(output,range(len(output))):
         if l & 1:
@@ -146,4 +147,57 @@ def create_zigzag(rows, cols, start = 1):
             full.append(i)
     print(full)
         
-create_zigzag(4, 2)
+#create_zigzag(3, 5)
+
+### Bingo bango bongo, I don't want to leave the Python ###
+
+def contains_bingo(card, numbers, centerfree = False):
+    cf = centerfree
+    cfn = (card[2][2])
+    checklist = [
+    [card[0][0], card[1][1], cfn, card[3][3], card[4][4]],
+    (card[4][0], card[3][1], cfn, card[1][3], card[0][4]),
+    (card[0][0], card[0][1], card[0][2], card[0][3], card[0][4]),
+    (card[1][0], card[1][1], card[1][2], card[1][3], card[1][4]),
+    (card[2][0], card[2][1], cfn, card[2][3], card[2][4]),
+    (card[3][0], card[3][1], card[3][2], card[3][3], card[3][4]),
+    (card[4][0], card[4][1], card[4][2], card[4][3], card[4][4]),
+    (card[0][0], card[1][0], card[2][0], card[3][0], card[4][0]),
+    (card[0][1], card[1][1], card[2][1], card[3][1], card[4][1]),
+    (card[0][2], card[1][2], cfn, card[3][2], card[4][2]),
+    (card[0][3], card[1][3], card[2][3], card[3][3], card[4][3]),
+    (card[0][4], card[1][4], card[2][4], card[3][4], card[4][4])
+    ]
+    sumsum = 0
+    for line in checklist:
+        for num in line:
+            if num in numbers:
+                num = 0
+                sumsum+=num
+            elif num == cfn and cf == True:
+                num = 0
+                sumsum+=num
+            elif num == cfn and cf == False:
+                num = 1
+                sumsum+=num
+            else:
+                num = 1
+                sumsum+=num
+        if sumsum == 0:
+            result = "True"
+            break
+        elif sumsum > 0:
+            result = "False"
+            continue
+    #print(result)
+
+contains_bingo([
+[89, 23, 61, 94, 67], 
+[19, 85, 90, 70, 32], 
+[36, 98, 57, 82, 20], 
+[76, 46, 25, 29, 7], 
+[55, 14, 53, 37, 44]
+],
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 16, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 31, 33, 
+35, 36, 37, 38, 39, 41, 42, 44, 45, 46, 47, 48, 49, 51, 52, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 
+65, 68, 70, 71, 73, 75, 76, 77, 79, 81, 82, 84, 85, 86, 87, 88, 89, 90, 91, 94, 98])
