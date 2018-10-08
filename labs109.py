@@ -1,4 +1,7 @@
-### 1
+### these are lab tests, instuctions can be found at https://docs.google.com/document/d/1IbbZOHwH4gjZ70XtP_rH6QhX3BeDd1ANxj1DYaFUPXk/edit#heading=h.edyunj7uqfvj
+
+
+### Ryerson letter grade ###
 
 def ryerson_letter_grade(pct):
     if pct < 50:
@@ -33,7 +36,8 @@ def ryerson_letter_grade(pct):
 #grade = int(input("enter grade: "))
 #print(ryerson_letter_grade(grade))
 
-### 2
+
+### Ascending list ###
 
 def is_ascending(items):
     this = True
@@ -50,10 +54,39 @@ def is_ascending(items):
     else:
         print("False")
 
-#is_ascending([0,1,2,3,4])
+#is_ascending([0,91,90,773,3454])
 
-### 3
 
+### Keep doubling ###
+zero = '0'
+one = '1'
+two = '2'
+three = '3'
+four = '4'
+five = '5'
+six = '6'
+seven = '7'
+eight = '8'
+nine = '9'
+arr = [zero, one, two, three, four, five, six, seven, eight, nine]
+
+
+def double_until_all_digits(n, giveup = 1000):
+    attempts = 0
+    while attempts != giveup:
+        if all(x in str(n) for x in arr) == True:
+            break
+        n=n*2
+        attempts = attempts + 1
+    if attempts == giveup:
+        print("-1")
+    else:
+        print(attempts)
+
+#double_until_all_digits(1)  # answer should be 68
+
+
+### cPS LOCK ###
 
 
 
