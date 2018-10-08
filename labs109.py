@@ -2,7 +2,6 @@
 
 
 ### Ryerson letter grade ###
-
 def ryerson_letter_grade(pct):
     if pct < 50:
         return 'F'
@@ -38,7 +37,6 @@ def ryerson_letter_grade(pct):
 
 
 ### Ascending list ###
-
 def is_ascending(items):
     this = True
     for i in range(len(items)):
@@ -54,7 +52,7 @@ def is_ascending(items):
     else:
         print("False")
 
-#is_ascending([0,91,90,773,3454])
+#is_ascending([5,91,90,773,3454])
 
 
 ### Keep doubling ###
@@ -87,6 +85,28 @@ def double_until_all_digits(n, giveup = 1000):
 
 
 ### cPS LOCK ###
+from pynput.keyboard import Key, Controller
+
+from win32api import GetKeyState 
+from win32con import VK_CAPITAL 
+
+keyboard = Controller()
+this = 'bcdefghijklmnopqrstuvwxyzBCDEFGHIJKLMNOPQRSTUVWXYZ '
+
+def caps_lock_stuck(text):
+    if GetKeyState(VK_CAPITAL) == 1:
+        keyboard.press(Key.caps_lock)
+    for i in text:
+        if i in this:
+            keyboard.type(i)
+        else:
+            keyboard.press(Key.caps_lock)
+            keyboard.release(Key.caps_lock)
+     
+#caps_lock_stuck("Madder than Mad Brian of Madcastle")
 
 
+### Scrabble value of a word ###
 
+
+        
