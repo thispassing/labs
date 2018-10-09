@@ -229,6 +229,27 @@ def group_equal(items):
     result.insert(len(result),new)
     print(result)
 
-group_equal([1, 1, 4, 4, 4, "hello", "hello", 4])
+#group_equal([1, 1, 4, 4, 4, "hello", "hello", 4])
 
-###
+### Recamán's sequence ############################################################################
+#http://mathworld.wolfram.com/RecamansSequence.html
+#def recaman(n):
+
+
+
+### Running median of three ###
+import statistics as st
+
+def running_median_of_three(items):
+    new = []
+    for i,n in zip(items,range(len(items))):
+        if i == items[0]:
+            new.insert(len(new),i)
+        elif i == items[1]:
+            new.insert(len(new),i)
+        else:
+            med = st.median([items[(n-2)], items[(n-1)], items[(n)]])
+            new.insert(len(new),med)
+    print(new)
+
+#running_median_of_three([5, 2, 9, 1, 7, 4, 6, 3, 8])
