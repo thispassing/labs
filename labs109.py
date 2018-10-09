@@ -259,18 +259,14 @@ def detab(string, n = 5, sound = "+"):
     result = ""
     pos = 0
     yes = (string[(n-1)::n])
-    #print(yes)
     for char,num in zip(string,range(len(string))):
         if char == "\t":
             if string[(num+1)] in yes:
                 char = ""
-                # instead of the tab character, append the
-                # number of spaces to the next tab stop
             else:
                 char = sound * (n - pos % n)
                 pos = 0
-            #if num in (string[::n]) == True:
-                #print('ya')
+
         elif char == "\n":
             pos = 0
         else:
