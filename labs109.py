@@ -168,8 +168,8 @@ def contains_bingo(card, numbers, centerfree = False):
     (card[0][3], card[1][3], card[2][3], card[3][3], card[4][3]),
     (card[0][4], card[1][4], card[2][4], card[3][4], card[4][4])
     ]
-    sumsum = 0
     for line in checklist:
+        sumsum = 0
         for num in line:
             if num in numbers:
                 num = 0
@@ -190,6 +190,7 @@ def contains_bingo(card, numbers, centerfree = False):
             result = "False"
             continue
     #print(result)
+    #print(sumsum)
 
 contains_bingo([
 [89, 23, 61, 94, 67], 
@@ -198,6 +199,36 @@ contains_bingo([
 [76, 46, 25, 29, 7], 
 [55, 14, 53, 37, 44]
 ],
-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 16, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 31, 33, 
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 16, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 31, 33, 
 35, 36, 37, 38, 39, 41, 42, 44, 45, 46, 47, 48, 49, 51, 52, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 
 65, 68, 70, 71, 73, 75, 76, 77, 79, 81, 82, 84, 85, 86, 87, 88, 89, 90, 91, 94, 98])
+
+
+### Group equal consecutive elements into sublists ###
+result = []
+def group_equal(items):
+    new = []
+    for i,n in zip(items,range(len(items))):
+        if new == []:
+            if items[-1] == i:    
+                if i == items[(n-1)]:
+                    new.insert(len(new),i)
+                elif i!= items[(n-1)]:
+                    result.insert(len(result),new)
+                    new = []
+                    new.insert(len(new),i)
+            else:
+                new.insert(len(new),i)
+        elif new != []:
+            if i == items[(n-1)]:
+                new.insert(len(new),i)
+            elif i!= items[(n-1)]:
+                result.insert(len(result),new)
+                new = []
+                new.insert(len(new),i)
+    result.insert(len(result),new)
+    print(result)
+
+group_equal([1, 1, 4, 4, 4, "hello", "hello", 4])
+
+###
