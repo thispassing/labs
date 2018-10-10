@@ -135,7 +135,10 @@ def create_zigzag(rows, cols, start = 1):
 	digits = start + rows * cols
 	
 	output = np.arange(start,digits,1).reshape(rows,cols)
-	#print(output)
+	# print(output)
+	# for m in output:
+	# 	m = list(m)
+	# 	print(m)
 
 	for i,l in zip(output,range(len(output))):
 		if l & 1:
@@ -152,7 +155,7 @@ def create_zigzag(rows, cols, start = 1):
 ### Bingo bango bongo, I don't want to leave the Python ###
 def contains_bingo(card, numbers, centerfree = False):
 	cf = centerfree
-	cfn = (card[2][2])
+	cfn = card[2][2]
 	checklist = [
 	[card[0][0], card[1][1], cfn, card[3][3], card[4][4]],
 	(card[4][0], card[3][1], cfn, card[1][3], card[0][4]),
@@ -167,7 +170,7 @@ def contains_bingo(card, numbers, centerfree = False):
 	(card[0][3], card[1][3], card[2][3], card[3][3], card[4][3]),
 	(card[0][4], card[1][4], card[2][4], card[3][4], card[4][4])
 	]
-	for line in checklist:
+	for line,tag in zip(checklist,range(len(checklist))):
 		sumsum = 0
 		for num in line:
 			if num in numbers:
@@ -176,9 +179,9 @@ def contains_bingo(card, numbers, centerfree = False):
 			elif num == cfn and cf == True:
 				num = 0
 				sumsum+=num
-			elif num == cfn and cf == False:
-				num = 1
-				sumsum+=num
+			# elif num == cfn and cf == False:
+			# 	num = 1
+			# 	sumsum+=num
 			else:
 				num = 1
 				sumsum+=num
@@ -188,8 +191,10 @@ def contains_bingo(card, numbers, centerfree = False):
 		elif sumsum > 0:
 			result = "False"
 			continue
-	#print(result)
-	#print(sumsum)
+
+	# print(result)
+	# print("Winning line is:",checklist[tag])
+	
 
 contains_bingo([
 [89, 23, 61, 94, 67], 
@@ -228,7 +233,7 @@ def group_equal(items):
 	result.insert(len(result),new)
 	print(result)
 
-#group_equal([1, 1, 4, 4, 4, "hello", "hello", 4])
+group_equal([1, 1, 4, 4, 4, "hello", "hello", 4])
 
 ### Recamán's sequence ############################################################################
 #http://mathworld.wolfram.com/RecamansSequence.html
@@ -251,7 +256,7 @@ def running_median_of_three(items):
 			new.insert(len(new),med)
 	print(new)
 
-#running_median_of_three([5, 2, 9, 1, 7, 4, 6, 3, 8])
+running_median_of_three([5, 2, 9, 1, 7, 4, 6, 3, 8])
 
 ### Deteb ###
 def detab(string, n = 5, sound = "+"):
@@ -265,12 +270,10 @@ def detab(string, n = 5, sound = "+"):
             else:
                 char = sound * (n - pos % n)
                 pos = 0
-        elif char == "\n":
-            pos = 0
         else:
             pos += 1
         result += char
-    print(result)
+    print("\""+result+"\"")
 
 #detab("Hello\tthereyou\tworld")
 #detab("Ilkka\tMarkus\tKokkarinen")
