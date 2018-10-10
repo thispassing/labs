@@ -150,7 +150,6 @@ def create_zigzag(rows, cols, start = 1):
 #create_zigzag(3, 5)
 
 ### Bingo bango bongo, I don't want to leave the Python ###
-
 def contains_bingo(card, numbers, centerfree = False):
 	cf = centerfree
 	cfn = (card[2][2])
@@ -266,7 +265,6 @@ def detab(string, n = 5, sound = "+"):
             else:
                 char = sound * (n - pos % n)
                 pos = 0
-
         elif char == "\n":
             pos = 0
         else:
@@ -277,3 +275,31 @@ def detab(string, n = 5, sound = "+"):
 #detab("Hello\tthereyou\tworld")
 #detab("Ilkka\tMarkus\tKokkarinen")
 #detab("Tenser,\tsaid\tthe\ttensor")
+
+
+### Reverse every ascending sublist ###
+def reverse_ascending_sublists(items):
+    newlist = []
+    cool = []
+    for i,n in zip(items,range(len(items))):
+        if n == 0:
+            cool.insert(len(items),i)
+        elif i > items[(n-1)]:
+            cool.insert(len(items),i)
+        elif i <= items[(n-1)]:
+            cool.reverse()
+            for x in cool:
+                newlist.append(x)
+            cool = []
+            cool.insert(len(items),i)
+    cool.reverse()
+    for x in cool:
+        newlist.append(x)
+    print(newlist)
+
+#reverse_ascending_sublists([1, 2, 3, 4, 5])
+#reverse_ascending_sublists([5, 7, 10, 4, 2, 7, 8, 1, 3])
+#reverse_ascending_sublists([5, 4, 3, 2, 1])
+#reverse_ascending_sublists([1, 2, 2, 3])
+
+
