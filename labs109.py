@@ -135,7 +135,7 @@ def create_zigzag(rows, cols, start = 1):
 	digits = start + rows * cols
 	
 	output = np.arange(start,digits,1).reshape(rows,cols)
-	# print(output)
+	#print(output)
 	# for m in output:
 	# 	m = list(m)
 	# 	print(m)
@@ -233,7 +233,7 @@ def group_equal(items):
 	result.insert(len(result),new)
 	print(result)
 
-group_equal([1, 1, 4, 4, 4, "hello", "hello", 4])
+#group_equal([1, 1, 4, 4, 4, "hello", "hello", 4])
 
 ### Recamán's sequence ############################################################################
 #http://mathworld.wolfram.com/RecamansSequence.html
@@ -256,7 +256,7 @@ def running_median_of_three(items):
 			new.insert(len(new),med)
 	print(new)
 
-running_median_of_three([5, 2, 9, 1, 7, 4, 6, 3, 8])
+#running_median_of_three([5, 2, 9, 1, 7, 4, 6, 3, 8])
 
 ### Deteb ###
 def detab(string, n = 5, sound = "+"):
@@ -304,5 +304,9 @@ def reverse_ascending_sublists(items):
 #reverse_ascending_sublists([5, 7, 10, 4, 2, 7, 8, 1, 3])
 #reverse_ascending_sublists([5, 4, 3, 2, 1])
 #reverse_ascending_sublists([1, 2, 2, 3])
+
+### The hand that's hard to get ###
+
+#def hand_is_badugi(hand):
 
 
