@@ -313,8 +313,7 @@ def hand_is_badugi(hand):
 	for card in hand:
 		for x in card:
 			if x not in new_stuff:
-				if x not in bad_stuff:
-					new_stuff.append(x)
+				new_stuff.append(x)
 			elif x in new_stuff:
 				bad_stuff.append(x)
 	if len(bad_stuff) == 0:
@@ -324,7 +323,7 @@ def hand_is_badugi(hand):
 
 new = [("queen", "hearts"), ("six", "diamonds"), ("deuce", "spades"), ("jack","clubs")]
 new1 = [("queen", "hearts"), ("six", "diamonds"), ("deuce", "spades"), ("queen","clubs")]
-#hand_is_badugi(new)
+hand_is_badugi(new1)
 
 
 
