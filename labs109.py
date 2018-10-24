@@ -307,6 +307,25 @@ def reverse_ascending_sublists(items):
 
 ### The hand that's hard to get ###
 
-#def hand_is_badugi(hand):
+def hand_is_badugi(hand):
+	new_stuff = []
+	bad_stuff = []
+	for card in hand:
+		for x in card:
+			if x not in new_stuff:
+				if x not in bad_stuff:
+					new_stuff.append(x)
+			elif x in new_stuff:
+				bad_stuff.append(x)
+	if len(bad_stuff) == 0:
+		print("True")
+	else:
+		print("False")
+
+new = [("queen", "hearts"), ("six", "diamonds"), ("deuce", "spades"), ("jack","clubs")]
+new1 = [("queen", "hearts"), ("six", "diamonds"), ("deuce", "spades"), ("queen","clubs")]
+#hand_is_badugi(new)
+
+
 
 
