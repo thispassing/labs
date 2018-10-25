@@ -323,7 +323,28 @@ def hand_is_badugi(hand):
 
 new = [("queen", "hearts"), ("six", "diamonds"), ("deuce", "spades"), ("jack","clubs")]
 new1 = [("queen", "hearts"), ("six", "diamonds"), ("deuce", "spades"), ("queen","clubs")]
-hand_is_badugi(new1)
+#hand_is_badugi(new)
+
+
+### Brangelina ###
+
+def brangelina(first, second):
+	combined = ""
+	vowel = ["a", "e", "i", "o", "u"]
+	for x in first:
+		if x not in vowel:
+			combined += x
+		elif x in vowel:
+			break
+	for y,z in zip(second,range(len(second))):
+		if y in vowel:
+			combined += second[z:]
+			break
+	print(combined)
+
+#brangelina("brad", "angelina")
+#brangelina("sheldon", "amy")
+#brangelina("rachada", "andrew")
 
 
 
