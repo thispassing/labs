@@ -347,5 +347,49 @@ def brangelina(first, second):
 #brangelina("rachada", "andrew")
 
 
+### Fulcrum ###
+
+import operator
+
+
+def can_balance(items):
+	number = int(len(items)/2)
+	front = items[:number]
+	inverse = (number - number - number)
+	back = items[inverse:]
+	print(front)
+	print(permutations(items, r=None))
+	# sum_front = 0
+	# sum_back = 0
+	# for x in front:
+	# 	sum_front += x
+	# for y in back:
+	# 	sum_back += y
+	
+	# if sum_back > sum_front:
+	# 	print(sum_back-sum_front)
+	
+	# print(sum_front)
+	# print(sum_back)
+
+	
+
+
+#can_balance([6,1,10,5,4])
+
+
+
+### Sort integers by their digit counts ###
+
+def sort_by_digit_count(items):
+	thing = []
+	for x in items:
+		x = str(x)
+		if "9" in x:
+			thing.append(x)
+	print(thing)
+	thing.sort()
+
+sort_by_digit_count([98, 19, 4321, 9999, 73, 241, 111111, 563, 33])
 
 
